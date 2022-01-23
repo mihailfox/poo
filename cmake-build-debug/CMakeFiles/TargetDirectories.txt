@@ -1,3 +1,3 @@
-N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/cmake-build-debug/CMakeFiles/poo.dir
-N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/ionut/Downloads/poo-master/poo/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/ionut/Downloads/poo-master/poo/cmake-build-debug/CMakeFiles/poo.dir
+C:/Users/ionut/Downloads/poo-master/poo/cmake-build-debug/CMakeFiles/edit_cache.dir

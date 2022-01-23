@@ -46,10 +46,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo"
+CMAKE_SOURCE_DIR = C:\Users\ionut\Downloads\poo-master\poo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\cmake-build-debug"
+CMAKE_BINARY_DIR = C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -76,9 +76,9 @@ edit_cache\fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\cmake-build-debug\CMakeFiles" "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\cmake-build-debug\\CMakeFiles\progress.marks"
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug\CMakeFiles C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug\\CMakeFiles\progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 /nologo -$(MAKEFLAGS) all
-	$(CMAKE_COMMAND) -E cmake_progress_start "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\cmake-build-debug\CMakeFiles" 0
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug\CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -141,6 +141,30 @@ classes\Carte.s: classes\Carte.cpp.s
 classes\Carte.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\poo.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\poo.dir\classes\Carte.cpp.s
 .PHONY : classes\Carte.cpp.s
+
+classes\bibliotecaManager.obj: classes\bibliotecaManager.cpp.obj
+.PHONY : classes\bibliotecaManager.obj
+
+# target to build an object file
+classes\bibliotecaManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\poo.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\poo.dir\classes\bibliotecaManager.cpp.obj
+.PHONY : classes\bibliotecaManager.cpp.obj
+
+classes\bibliotecaManager.i: classes\bibliotecaManager.cpp.i
+.PHONY : classes\bibliotecaManager.i
+
+# target to preprocess a source file
+classes\bibliotecaManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\poo.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\poo.dir\classes\bibliotecaManager.cpp.i
+.PHONY : classes\bibliotecaManager.cpp.i
+
+classes\bibliotecaManager.s: classes\bibliotecaManager.cpp.s
+.PHONY : classes\bibliotecaManager.s
+
+# target to generate assembly for a file
+classes\bibliotecaManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\poo.dir\build.make /nologo -$(MAKEFLAGS) CMakeFiles\poo.dir\classes\bibliotecaManager.cpp.s
+.PHONY : classes\bibliotecaManager.cpp.s
 
 classes\csvFile.obj: classes\csvFile.cpp.obj
 .PHONY : classes\csvFile.obj
@@ -250,6 +274,9 @@ help:
 	@echo ... classes/Carte.obj
 	@echo ... classes/Carte.i
 	@echo ... classes/Carte.s
+	@echo ... classes/bibliotecaManager.obj
+	@echo ... classes/bibliotecaManager.i
+	@echo ... classes/bibliotecaManager.s
 	@echo ... classes/csvFile.obj
 	@echo ... classes/csvFile.i
 	@echo ... classes/csvFile.s

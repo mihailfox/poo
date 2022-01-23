@@ -8,11 +8,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/classes/Carte.cpp" "N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/cmake-build-debug/CMakeFiles/poo.dir/Classes/Carte.cpp.obj"
-  "N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/classes/csvFile.cpp" "N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/cmake-build-debug/CMakeFiles/poo.dir/Classes/csvFile.cpp.obj"
-  "N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/classes/menu.cpp" "N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/cmake-build-debug/CMakeFiles/poo.dir/Classes/menu.cpp.obj"
-  "N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/classes/menuItem.cpp" "N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/cmake-build-debug/CMakeFiles/poo.dir/Classes/menuItem.cpp.obj"
-  "N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/main.cpp" "N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/cmake-build-debug/CMakeFiles/poo.dir/main.cpp.obj"
+  "C:/Users/ionut/Downloads/poo-master/poo/classes/Carte.cpp" "C:/Users/ionut/Downloads/poo-master/poo/cmake-build-debug/CMakeFiles/poo.dir/classes/Carte.cpp.obj"
+  "C:/Users/ionut/Downloads/poo-master/poo/classes/bibliotecaManager.cpp" "C:/Users/ionut/Downloads/poo-master/poo/cmake-build-debug/CMakeFiles/poo.dir/classes/bibliotecaManager.cpp.obj"
+  "C:/Users/ionut/Downloads/poo-master/poo/classes/csvFile.cpp" "C:/Users/ionut/Downloads/poo-master/poo/cmake-build-debug/CMakeFiles/poo.dir/classes/csvFile.cpp.obj"
+  "C:/Users/ionut/Downloads/poo-master/poo/classes/menu.cpp" "C:/Users/ionut/Downloads/poo-master/poo/cmake-build-debug/CMakeFiles/poo.dir/classes/menu.cpp.obj"
+  "C:/Users/ionut/Downloads/poo-master/poo/classes/menuItem.cpp" "C:/Users/ionut/Downloads/poo-master/poo/cmake-build-debug/CMakeFiles/poo.dir/classes/menuItem.cpp.obj"
+  "C:/Users/ionut/Downloads/poo-master/poo/main.cpp" "C:/Users/ionut/Downloads/poo-master/poo/cmake-build-debug/CMakeFiles/poo.dir/main.cpp.obj"
   )
 set(CMAKE_CXX_COMPILER_ID "MSVC")
 

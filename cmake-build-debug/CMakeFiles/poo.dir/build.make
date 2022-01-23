@@ -42,10 +42,10 @@ RM = "C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E 
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo"
+CMAKE_SOURCE_DIR = C:\Users\ionut\Downloads\poo-master\poo
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\cmake-build-debug"
+CMAKE_BINARY_DIR = C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles\poo.dir\depend.make
@@ -57,97 +57,116 @@ include CMakeFiles\poo.dir\flags.make
 
 CMakeFiles\poo.dir\main.cpp.obj: CMakeFiles\poo.dir\flags.make
 CMakeFiles\poo.dir\main.cpp.obj: ..\main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/poo.dir/main.cpp.obj"
-	C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\poo.dir\main.cpp.obj /FdCMakeFiles\poo.dir\ /FS -c "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\main.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/poo.dir/main.cpp.obj"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\poo.dir\main.cpp.obj /FdCMakeFiles\poo.dir\ /FS -c C:\Users\ionut\Downloads\poo-master\poo\main.cpp
 <<
 
 CMakeFiles\poo.dir\main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/poo.dir/main.cpp.i"
-	C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe > CMakeFiles\poo.dir\main.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\main.cpp"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe > CMakeFiles\poo.dir\main.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\ionut\Downloads\poo-master\poo\main.cpp
 <<
 
 CMakeFiles\poo.dir\main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/poo.dir/main.cpp.s"
-	C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\poo.dir\main.cpp.s /c "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\main.cpp"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\poo.dir\main.cpp.s /c C:\Users\ionut\Downloads\poo-master\poo\main.cpp
 <<
 
 CMakeFiles\poo.dir\classes\Carte.cpp.obj: CMakeFiles\poo.dir\flags.make
 CMakeFiles\poo.dir\classes\Carte.cpp.obj: ..\classes\Carte.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/poo.dir/classes/Carte.cpp.obj"
-	C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\poo.dir\classes\Carte.cpp.obj /FdCMakeFiles\poo.dir\ /FS -c "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\classes\Carte.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/poo.dir/classes/Carte.cpp.obj"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\poo.dir\classes\Carte.cpp.obj /FdCMakeFiles\poo.dir\ /FS -c C:\Users\ionut\Downloads\poo-master\poo\classes\Carte.cpp
 <<
 
 CMakeFiles\poo.dir\classes\Carte.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/poo.dir/classes/Carte.cpp.i"
-	C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe > CMakeFiles\poo.dir\classes\Carte.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\classes\Carte.cpp"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe > CMakeFiles\poo.dir\classes\Carte.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\ionut\Downloads\poo-master\poo\classes\Carte.cpp
 <<
 
 CMakeFiles\poo.dir\classes\Carte.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/poo.dir/classes/Carte.cpp.s"
-	C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\poo.dir\classes\Carte.cpp.s /c "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\classes\Carte.cpp"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\poo.dir\classes\Carte.cpp.s /c C:\Users\ionut\Downloads\poo-master\poo\classes\Carte.cpp
 <<
 
 CMakeFiles\poo.dir\classes\csvFile.cpp.obj: CMakeFiles\poo.dir\flags.make
 CMakeFiles\poo.dir\classes\csvFile.cpp.obj: ..\classes\csvFile.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/poo.dir/classes/csvFile.cpp.obj"
-	C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\poo.dir\classes\csvFile.cpp.obj /FdCMakeFiles\poo.dir\ /FS -c "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\classes\csvFile.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/poo.dir/classes/csvFile.cpp.obj"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\poo.dir\classes\csvFile.cpp.obj /FdCMakeFiles\poo.dir\ /FS -c C:\Users\ionut\Downloads\poo-master\poo\classes\csvFile.cpp
 <<
 
 CMakeFiles\poo.dir\classes\csvFile.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/poo.dir/classes/csvFile.cpp.i"
-	C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe > CMakeFiles\poo.dir\classes\csvFile.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\classes\csvFile.cpp"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe > CMakeFiles\poo.dir\classes\csvFile.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\ionut\Downloads\poo-master\poo\classes\csvFile.cpp
 <<
 
 CMakeFiles\poo.dir\classes\csvFile.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/poo.dir/classes/csvFile.cpp.s"
-	C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\poo.dir\classes\csvFile.cpp.s /c "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\classes\csvFile.cpp"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\poo.dir\classes\csvFile.cpp.s /c C:\Users\ionut\Downloads\poo-master\poo\classes\csvFile.cpp
 <<
 
 CMakeFiles\poo.dir\classes\menu.cpp.obj: CMakeFiles\poo.dir\flags.make
 CMakeFiles\poo.dir\classes\menu.cpp.obj: ..\classes\menu.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/poo.dir/classes/menu.cpp.obj"
-	C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\poo.dir\classes\menu.cpp.obj /FdCMakeFiles\poo.dir\ /FS -c "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\classes\menu.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/poo.dir/classes/menu.cpp.obj"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\poo.dir\classes\menu.cpp.obj /FdCMakeFiles\poo.dir\ /FS -c C:\Users\ionut\Downloads\poo-master\poo\classes\menu.cpp
 <<
 
 CMakeFiles\poo.dir\classes\menu.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/poo.dir/classes/menu.cpp.i"
-	C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe > CMakeFiles\poo.dir\classes\menu.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\classes\menu.cpp"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe > CMakeFiles\poo.dir\classes\menu.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\ionut\Downloads\poo-master\poo\classes\menu.cpp
 <<
 
 CMakeFiles\poo.dir\classes\menu.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/poo.dir/classes/menu.cpp.s"
-	C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\poo.dir\classes\menu.cpp.s /c "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\classes\menu.cpp"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\poo.dir\classes\menu.cpp.s /c C:\Users\ionut\Downloads\poo-master\poo\classes\menu.cpp
 <<
 
 CMakeFiles\poo.dir\classes\menuItem.cpp.obj: CMakeFiles\poo.dir\flags.make
 CMakeFiles\poo.dir\classes\menuItem.cpp.obj: ..\classes\menuItem.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir="N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/poo.dir/classes/menuItem.cpp.obj"
-	C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\poo.dir\classes\menuItem.cpp.obj /FdCMakeFiles\poo.dir\ /FS -c "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\classes\menuItem.cpp"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/poo.dir/classes/menuItem.cpp.obj"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\poo.dir\classes\menuItem.cpp.obj /FdCMakeFiles\poo.dir\ /FS -c C:\Users\ionut\Downloads\poo-master\poo\classes\menuItem.cpp
 <<
 
 CMakeFiles\poo.dir\classes\menuItem.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/poo.dir/classes/menuItem.cpp.i"
-	C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe > CMakeFiles\poo.dir\classes\menuItem.cpp.i @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\classes\menuItem.cpp"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe > CMakeFiles\poo.dir\classes\menuItem.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\ionut\Downloads\poo-master\poo\classes\menuItem.cpp
 <<
 
 CMakeFiles\poo.dir\classes\menuItem.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/poo.dir/classes/menuItem.cpp.s"
-	C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
- /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\poo.dir\classes\menuItem.cpp.s /c "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\classes\menuItem.cpp"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\poo.dir\classes\menuItem.cpp.s /c C:\Users\ionut\Downloads\poo-master\poo\classes\menuItem.cpp
+<<
+
+CMakeFiles\poo.dir\classes\bibliotecaManager.cpp.obj: CMakeFiles\poo.dir\flags.make
+CMakeFiles\poo.dir\classes\bibliotecaManager.cpp.obj: ..\classes\bibliotecaManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/poo.dir/classes/bibliotecaManager.cpp.obj"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoCMakeFiles\poo.dir\classes\bibliotecaManager.cpp.obj /FdCMakeFiles\poo.dir\ /FS -c C:\Users\ionut\Downloads\poo-master\poo\classes\bibliotecaManager.cpp
+<<
+
+CMakeFiles\poo.dir\classes\bibliotecaManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/poo.dir/classes/bibliotecaManager.cpp.i"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe > CMakeFiles\poo.dir\classes\bibliotecaManager.cpp.i @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\ionut\Downloads\poo-master\poo\classes\bibliotecaManager.cpp
+<<
+
+CMakeFiles\poo.dir\classes\bibliotecaManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/poo.dir/classes/bibliotecaManager.cpp.s"
+	C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\cl.exe @<<
+ /nologo /TP $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) /FoNUL /FAs /FaCMakeFiles\poo.dir\classes\bibliotecaManager.cpp.s /c C:\Users\ionut\Downloads\poo-master\poo\classes\bibliotecaManager.cpp
 <<
 
 # Object files for target poo
@@ -156,7 +175,8 @@ poo_OBJECTS = \
 "CMakeFiles\poo.dir\classes\Carte.cpp.obj" \
 "CMakeFiles\poo.dir\classes\csvFile.cpp.obj" \
 "CMakeFiles\poo.dir\classes\menu.cpp.obj" \
-"CMakeFiles\poo.dir\classes\menuItem.cpp.obj"
+"CMakeFiles\poo.dir\classes\menuItem.cpp.obj" \
+"CMakeFiles\poo.dir\classes\bibliotecaManager.cpp.obj"
 
 # External object files for target poo
 poo_EXTERNAL_OBJECTS =
@@ -166,11 +186,12 @@ poo.exe: CMakeFiles\poo.dir\classes\Carte.cpp.obj
 poo.exe: CMakeFiles\poo.dir\classes\csvFile.cpp.obj
 poo.exe: CMakeFiles\poo.dir\classes\menu.cpp.obj
 poo.exe: CMakeFiles\poo.dir\classes\menuItem.cpp.obj
+poo.exe: CMakeFiles\poo.dir\classes\bibliotecaManager.cpp.obj
 poo.exe: CMakeFiles\poo.dir\build.make
 poo.exe: CMakeFiles\poo.dir\objects1.rsp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir="N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable poo.exe"
-	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\poo.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\mt.exe --manifests -- C:\PROGRA~1\MICROS~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\poo.dir\objects1.rsp @<<
- /out:poo.exe /implib:poo.lib /pdb:"N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\cmake-build-debug\poo.pdb" /version:0.0 /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable poo.exe"
+	"C:\Program Files\JetBrains\CLion 2021.2.3\bin\cmake\win\bin\cmake.exe" -E vs_link_exe --intdir=CMakeFiles\poo.dir --rc=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\rc.exe --mt=C:\PROGRA~2\WI3CF2~1\10\bin\100190~1.0\x86\mt.exe --manifests -- C:\PROGRA~1\MIB055~1\2022\COMMUN~1\VC\Tools\MSVC\1430~1.307\bin\Hostx86\x86\link.exe /nologo @CMakeFiles\poo.dir\objects1.rsp @<<
+ /out:poo.exe /implib:poo.lib /pdb:C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug\poo.pdb /version:0.0 /machine:X86 /debug /INCREMENTAL /subsystem:console  kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib 
 <<
 
 # Rule to build all files generated by this target.
@@ -182,6 +203,6 @@ CMakeFiles\poo.dir\clean:
 .PHONY : CMakeFiles\poo.dir\clean
 
 CMakeFiles\poo.dir\depend:
-	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo" "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo" "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\cmake-build-debug" "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\cmake-build-debug" "N:\OneDrive - UNIVERSITATEA TITU MAIORESCU\Teme\poo\cmake-build-debug\CMakeFiles\poo.dir\DependInfo.cmake" --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "NMake Makefiles" C:\Users\ionut\Downloads\poo-master\poo C:\Users\ionut\Downloads\poo-master\poo C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug C:\Users\ionut\Downloads\poo-master\poo\cmake-build-debug\CMakeFiles\poo.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles\poo.dir\depend
 

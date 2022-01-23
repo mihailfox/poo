@@ -3,6 +3,9 @@
 
 #include <string>
 #include <vector>
+#include <ctime>
+
+
 
 using namespace std;
 
@@ -12,10 +15,13 @@ private:
     string titlu;
     string autor;
     string domeniu;
-
+    bool imprumutat;
+    long int lendTime;
+    bool strToBool(string input);
+    string boolToStr(bool input);
 public:
     Carte();
-    Carte(string cota, string titlu,string autor,string domeniu);
+    Carte(string cota, string titlu, string autor, string domeniu, bool imprumutat, long int lendTime);
     Carte(vector<string> input);
 
     void setCota(string input);
@@ -29,6 +35,12 @@ public:
 
     void setDomeniu(string input);
     string getDomeniu();
+
+    void setImprumutat(bool input);
+    bool getImprumutat();
+
+    void setLendTime(long int input);
+    long int getLendTime();
 
     vector<string> toVector();
 

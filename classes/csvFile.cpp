@@ -40,7 +40,7 @@ char csvFile::getFieldDelimiter() {
 
 void csvFile::setFileContent(vector<vector<string>> fileContent) {
     string line;
-    fstream file (this->fileName, ios::app);
+    fstream file (this->fileName, ios::out);
 
     try {
         if (file.is_open()) {

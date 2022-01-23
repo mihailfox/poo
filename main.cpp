@@ -4,6 +4,7 @@
 #include "classes/csvFile.h"
 #include "classes/menuItem.h"
 #include "classes/menu.h"
+#include "classes/bibliotecaManager.h"
 
 using namespace std;
 
@@ -17,6 +18,20 @@ void printMenu();
 
 int main() {
     printMenu();
+
+    bibliotecaManager manager("carti.in", ',');
+    manager.loadCarti();
+
+    manager.lendCarte("BB 421");
+    manager.lendCarte("BB 420");
+
+//    manager.getAllBooksPastReturnDate();
+//    manager.deleteCarte("BB 420");
+//    manager.findCarte("Doi chiori");
+
+    manager.saveCarti();
+
+
 
     //    ((void(*)())menuItems[0].getAction())();
 
