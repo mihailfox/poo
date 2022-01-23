@@ -7,7 +7,7 @@ using namespace std;
 
 Carte::Carte() = default;
 
-Carte::Carte(string cota, string titlu, string autor, string domeniu) {
+Carte::Carte(string cota, string titlu, string autor, string domeniu, bool imprumutat, long int lendTime) {
     if (cota.empty() || titlu.empty() || autor.empty() || domeniu.empty())
     {
         throw invalid_argument("Received an empty argument!");
@@ -17,11 +17,13 @@ Carte::Carte(string cota, string titlu, string autor, string domeniu) {
     this->titlu = titlu;
     this->autor = autor;
     this->domeniu = domeniu;
+    this->imprumutat = imprumutat;
+    this->lendTime = lendTime;
 }
 
 Carte::Carte(vector<string> input) {
 
-    if (input.size() != 4 ) {
+    if (input.size() != 6 ) {
         throw invalid_argument("Input has different size than expected!");
     }
 
@@ -33,10 +35,11 @@ Carte::Carte(vector<string> input) {
     }
 
     this->cota = input[0];
-    this->titlu=input[1];
-    this->autor=input[2];
-    this->domeniu=input[3];
-
+    this->titlu = input[1];
+    this->autor = input[2];
+    this->domeniu = input[3];
+    this->imprumutat = strToBool(input[4]);
+    this->lendTime = stol(input[5]);
 }
 
 
@@ -92,6 +95,22 @@ string Carte::getDomeniu() {
     return this->domeniu;
 }
 
+void Carte::setImprumutat(bool input) {
+    this->imprumutat = input;
+}
+
+bool Carte::getImprumutat() {
+    return this->imprumutat;
+}
+
+void Carte::setLendTime(long input) {
+    this->lendTime = input;
+}
+
+long int Carte::getLendTime() {
+    return this->lendTime;
+}
+
 vector<string> Carte::toVector() {
     vector<string> output;
 
@@ -99,6 +118,8 @@ vector<string> Carte::toVector() {
     output.push_back(this->titlu);
     output.push_back(this->autor);
     output.push_back(this->domeniu);
+    output.push_back(boolToStr(this->imprumutat));
+    output.push_back(to_string(this->lendTime));
 
     return output;
 }
@@ -115,9 +136,21 @@ Carte::~Carte() {
     this->titlu.clear();
     this->autor.clear();
     this->domeniu.clear();
+    this->imprumutat = false;
+    this->lendTime = 0;
 }
 
+bool Carte::strToBool(string input) {
+    if (input == "false") {
+        return false;
+    }
+    return true;
+}
 
-
-
-
+string Carte::boolToStr(bool input) {
+    if (input == false)
+    {
+        return "false";
+    }
+    return "true";
+}

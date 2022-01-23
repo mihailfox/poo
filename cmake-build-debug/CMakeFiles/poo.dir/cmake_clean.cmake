@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/poo.dir/classes/Carte.cpp.obj"
+  "CMakeFiles/poo.dir/classes/bibliotecaManager.cpp.obj"
   "CMakeFiles/poo.dir/classes/csvFile.cpp.obj"
   "CMakeFiles/poo.dir/classes/menu.cpp.obj"
   "CMakeFiles/poo.dir/classes/menuItem.cpp.obj"
