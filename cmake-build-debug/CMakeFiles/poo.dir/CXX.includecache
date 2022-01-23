@@ -6,8 +6,20 @@
 
 #IncludeRegexTransform: 
 
-N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/classes/menuItem.cpp
+N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/classes/Carte.h
+string
+-
+vector
+-
+
+N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/classes/csvFile.h
 iostream
+-
+vector
+-
+
+N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/classes/menu.h
+vector
 -
 menuItem.h
 N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/classes/menuItem.h
@@ -15,4 +27,18 @@ N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/classes/menuItem.h
 N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/classes/menuItem.h
 string
 -
+
+N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/main.cpp
+iostream
+-
+vector
+-
+classes/Carte.h
+N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/classes/Carte.h
+classes/csvFile.h
+N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/classes/csvFile.h
+classes/menuItem.h
+N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/classes/menuItem.h
+classes/menu.h
+N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/classes/menu.h
 

@@ -10,18 +10,17 @@ using namespace std;
 vector<menuItem> createMenuItems();
 void exitApp();
 void execute(void *function);
+void printMenu();
 void app();
 
+void printMenu();
+
 int main() {
-    vector<menuItem> menuItems = createMenuItems();
-    menu mainMenu("Biblioteca",menuItems);
-    mainMenu.setExitItem(menuItem("0","Exit",exitApp,'0'));
+    printMenu();
 
-    cout << mainMenu.toString();
+    //    ((void(*)())menuItems[0].getAction())();
 
-//    ((void(*)())menuItems[0].getAction())();
-
-    execute(menuItems[0].getAction());
+//    execute(menuItems[0].getAction());
 
 
 //    cout << menuItems[0].getAction();
@@ -30,6 +29,13 @@ int main() {
 
 
     return 0;
+}
+
+void printMenu() {
+    menu mainMenu("Biblioteca", createMenuItems());
+    mainMenu.setExitItem(menuItem("0","Exit",exitApp,'0'));
+
+    cout << mainMenu.toString();
 }
 
 void app() {
@@ -73,6 +79,12 @@ vector<menuItem> createMenuItems() {
     vector<menuItem> menuItems;
 
     menuItems.push_back(menuItem("1", "Load carti.in", app, '1'));
+    menuItems.push_back(menuItem("2", "Create new domain", app, '2'));
+    menuItems.push_back(menuItem("3", "Add book to domain", app, '3'));
+    menuItems.push_back(menuItem("4", "Delete book", app, '4'));
+    menuItems.push_back(menuItem("5", "Check loaned books return term", app, '1'));
+
+
 
     return menuItems;
 }
