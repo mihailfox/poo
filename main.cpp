@@ -1,12 +1,10 @@
-
 #include <iostream>
 #include <vector>
-#include "classes/Carte.h"
-#include "classes/csvFile.h"
+#include "classes/book.h"
 #include "classes/menuItem.h"
 #include "classes/menu.h"
-#include "classes/bibliotecaManager.h"
-#include "classes/domainManager.h"
+#include "classes/booksManager.h"
+#include "classes/domainsManager.h"
 
 using namespace std;
 
@@ -14,19 +12,18 @@ vector<menuItem> createMenuItems();
 void exitApp();
 void execute(void *function);
 void initMenu();
-void app();
 void wait();
-bibliotecaManager biblioteca;
-domainManager domains;
+booksManager biblioteca;
+domainsManager domains;
 void initMenu();
+void printBooks(vector<book> books);
 string getInput();
-void printBooks(vector<Carte> books);
-string getString(string message);
+string getInput(string message);
 
 int main() {
     try {
-        biblioteca = bibliotecaManager("carti.in", ';');
-        domains = domainManager("domenii.in", ';');
+        biblioteca = booksManager("books.in", ';');
+        domains = domainsManager("domenii.in", ';');
         initMenu();
 
 
@@ -36,27 +33,7 @@ int main() {
     }
 
 
-//    biblioteca.lendCarte("BB 421");
-//    biblioteca.lendCarte("BB 420");
-
-//    biblioteca.getAllBooksPastReturnDate();
-//    biblioteca.deleteCarte("BB 420");
-//    biblioteca.findCarte("Doi chiori");
-
-//    biblioteca.saveCarti();
-
-
-
-    //    ((void(*)())menuItems[0].getAction())();
-
-//    execute(menuItems[0].getAction());
-
-
-//    cout << menuItems[0].getAction();
-//    cout << endl;
-//    cout << mainMenu.getExitItem().getAction();
-
-    biblioteca.saveCarti();
+    biblioteca.saveBooks();
     domains.saveDomains();
     return 0;
 }
@@ -82,7 +59,7 @@ void initMenu() {
             }
         }
 
-    } while (choice != mainMenu.getExitItem().getConsoleKey() || !cin);
+    } while (choice != mainMenu.getExitItem().getConsoleKey());
 }
 
 string getInput()
@@ -90,44 +67,9 @@ string getInput()
     string input;
     getline(cin, input);
 
-//    while (!cin.good())
-//    {
-//        cout << "Invalid input!" << endl;
-//        cin.clear();
-//        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-//        cin >> input;
-//    }
     return input;
 }
 
-//void app() {
-//    vector<Carte> carti;
-//    vector<vector<string>> temp;
-//
-//    csvFile test;
-//
-//    try {
-//        test.setFilename("carti.in");
-//        test.setFieldDelimiter(',');
-//
-//        temp = test.getFileContent();
-//
-//        for (int i = 0; i < temp.size(); ++i) {
-//            carti.push_back(Carte(temp[i]));
-//        }
-//
-//        cout << "#### Carti ####" << endl;
-//        cout << carti.size() << endl;
-//
-//        for (int i = 0; i < carti.size(); ++i) {
-//            carti[i].printDetails();
-//            cout << endl;
-//        }
-//    }
-//    catch (exception ex) {
-//        cout << ex.what();
-//    }
-//}
 
 void exitApp() {
     return;
@@ -139,9 +81,9 @@ void loadData() {
 }
 
 void findBooks() {
-    string input = getString("Input search term: ");
+    string input = getInput("Input search term: ");
 
-    vector<Carte> foundBooks = biblioteca.findCarte(input);
+    vector<book> foundBooks = biblioteca.findBook(input);
 
     if (foundBooks.size() == 0) {
         cout << "No books found for search term " << input << endl;
@@ -151,7 +93,7 @@ void findBooks() {
     printBooks(foundBooks);
 }
 
-void printBooks(vector<Carte> books) {
+void printBooks(vector<book> books) {
     for (int i = 0; i < books.size(); ++i) {
         books[i].printDetails();
         cout << endl;
@@ -159,38 +101,38 @@ void printBooks(vector<Carte> books) {
 }
 
 void deleteBook() {
-    string input = getString("Input cota: ");
+    string input = getInput("Input id: ");
 
-    if (biblioteca.deleteCarte(input)) {
-        domains.deleteCotaFromDomain(input);
-        cout << "Book with cota " << input << " has been successfully deleted" << endl;
+    if (biblioteca.deleteBook(input)) {
+        domains.removeFromDomain(input);
+        cout << "Book with id " << input << " has been successfully deleted" << endl;
     } else {
-        cout << "No book found with cota " << input << endl;
+        cout << "No book found with id " << input << endl;
     }
 }
 
 void lendBook() {
-    string input = getString("Input cota: ");
+    string input = getInput("Input id: ");
 
-    if (biblioteca.lendCarte(input)) {
-        cout << "Book with cota " << input << " has been lend" << endl;
+    if (biblioteca.lendBook(input)) {
+        cout << "Book with id " << input << " has been lend" << endl;
     } else {
         cout << "Book not found or book already lend" << endl;
     }
 }
 
 void returnBook() {
-    string input = getString("Input cota: ");
+    string input = getInput("Input id: ");
 
-    if (biblioteca.returnCarte(input)) {
-        cout << "Book with cota " << input << " has been returned" << endl;
+    if (biblioteca.returnBook(input)) {
+        cout << "Book with id " << input << " has been returned" << endl;
     } else {
         cout << "Book not found or book already returned" << endl;
     }
 }
 
 void checkLendBooks() {
-    vector<Carte> books = biblioteca.getAllBooksPastReturnDate();
+    vector<book> books = biblioteca.getAllBooksPastReturnDate();
 
     if (books.empty()) {
         cout << "No books found past return date" << endl;
@@ -200,39 +142,37 @@ void checkLendBooks() {
 }
 
 void createNewDomain() {
-    string domainName = getString("Input new domain name: ");
+    string domainName = getInput("Input new domain name: ");
 
     if (domains.addDomain(domainName)) {
-        cout << "Domain added" << endl;
+        cout << "domain added" << endl;
     } else {
-        cout << "Domain already exists" << endl;
+        cout << "domain already exists" << endl;
     }
 }
 
 void addBookToDomain() {
-    Carte carte;
+    book carte;
 
     cout<<endl;
-    string domainName = getString("Input existing domain: ");
+    string domainName = getInput("Input existing domain: ");
 
-    string temp = getString("Input book title: ");
-    carte.setTitlu(temp);
-    temp = getString("Input book author: ");
-    carte.setAutor(temp);
-    temp = getString("Input book cota: ");
-    carte.setCota(temp);
+    string temp = getInput("Input book title: ");
+    carte.setTitle(temp);
+    temp = getInput("Input book author: ");
+    carte.setAuthor(temp);
+    temp = getInput("Input book id: ");
+    carte.setId(temp);
 
-    if (biblioteca.addBook(carte)) {
-        cout << "Book added" << endl;
-    } else {
-        cout << "A book with same cota already exists" << endl;
+    if (!biblioteca.addBook(carte)) {
+        cout << "A book with same id already exists" << endl;
         return;
     }
 
-    if (domains.addCotaToDomain(carte, domainName)) {
+    if (domains.addToDomain(carte, domainName)) {
         cout << "Book has been added to domain" << endl;
     } else {
-        biblioteca.deleteCarte(carte.getCota());
+        biblioteca.deleteBook(carte.getId());
         cout << "Domain does not exist" << endl;
     }
 }
@@ -258,22 +198,13 @@ vector<menuItem> createMenuItems() {
 
 void wait()
 {
-    cout << endl;
     cout << "Press ENTER to continue...";
     cin.ignore();
-    cin.get();
 }
 
-string getString(string message) {
-    string output;
+string getInput(string message) {
     cout << message << endl;
 
-//    cin.clear();
-//    cin.ignore(/*numeric_limits<streamsize>::max(), '\n'*/);
-
-    getline(cin, output);
-//    cin >> output;
-
-    return  output;
+    return getInput();
 }
 

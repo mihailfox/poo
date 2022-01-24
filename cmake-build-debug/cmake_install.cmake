@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/ionut/Downloads/poo-master/poo
+# Install script for directory: N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/ionut/Downloads/poo-master/poo/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "N:/OneDrive - UNIVERSITATEA TITU MAIORESCU/Teme/poo/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
