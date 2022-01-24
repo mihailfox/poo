@@ -19,7 +19,7 @@ void wait();
 bibliotecaManager biblioteca;
 domainManager domains;
 void initMenu();
-int getInteger();
+string getInput();
 void printBooks(vector<Carte> books);
 string getString(string message);
 
@@ -64,16 +64,16 @@ int main() {
 void initMenu() {
     vector<menuItem> menuItems = createMenuItems();
     menu mainMenu("Biblioteca", menuItems);
-    mainMenu.setExitItem(menuItem("0","Exit",exitApp,0));
+    mainMenu.setExitItem(menuItem("0","Exit",exitApp,"0"));
 
 
-    int choice;
+    string choice;
     do {
         system("cls");
         // system("clear); // for linux OS
 
         cout << mainMenu.toString();
-        choice = getInteger();
+        choice = getInput();
         for (int i = 0; i < menuItems.size(); ++i) {
             if (menuItems[i].getConsoleKey() == choice) {
                 execute(menuItems[i].getAction());
@@ -85,18 +85,18 @@ void initMenu() {
     } while (choice != mainMenu.getExitItem().getConsoleKey() || !cin);
 }
 
-int getInteger()
+string getInput()
 {
-    int input;
-    cin >> input;
+    string input;
+    getline(cin, input);
 
-    while (!cin.good())
-    {
-        cout << "Invalid input!" << endl;
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        cin >> input;
-    }
+//    while (!cin.good())
+//    {
+//        cout << "Invalid input!" << endl;
+//        cin.clear();
+//        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+//        cin >> input;
+//    }
     return input;
 }
 
@@ -244,14 +244,14 @@ void execute(void *function) {
 vector<menuItem> createMenuItems() {
     vector<menuItem> menuItems;
 
-    menuItems.push_back(menuItem("1", "Load data", loadData, 1));
-    menuItems.push_back(menuItem("2", "Create new domain", createNewDomain, 2));
-    menuItems.push_back(menuItem("3", "Add book to domain", addBookToDomain, 3));
-    menuItems.push_back(menuItem("4", "Search books by title or author", findBooks, 4));
-    menuItems.push_back(menuItem("5", "Delete book", deleteBook, 5));
-    menuItems.push_back(menuItem("6", "Lend book", lendBook, 6));
-    menuItems.push_back(menuItem("7", "Return book", returnBook, 7));
-    menuItems.push_back(menuItem("8", "Check loaned books return term", checkLendBooks, 8));
+    menuItems.push_back(menuItem("1", "Load data", loadData, "1"));
+    menuItems.push_back(menuItem("2", "Create new domain", createNewDomain, "2"));
+    menuItems.push_back(menuItem("3", "Add book to domain", addBookToDomain, "3"));
+    menuItems.push_back(menuItem("4", "Search books by title or author", findBooks, "4"));
+    menuItems.push_back(menuItem("5", "Delete book", deleteBook, "5"));
+    menuItems.push_back(menuItem("6", "Lend book", lendBook, "6"));
+    menuItems.push_back(menuItem("7", "Return book", returnBook, "7"));
+    menuItems.push_back(menuItem("8", "Check loaned books return term", checkLendBooks, "8"));
 
     return menuItems;
 }

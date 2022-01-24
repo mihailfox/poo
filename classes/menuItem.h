@@ -9,11 +9,11 @@ class menuItem {
 protected:
     string itemId;
     string label;
-    int consoleKey;
+    string consoleKey;
     void *function;
 public:
     menuItem();
-    menuItem(string itemId, string label, void *function, int consoleKey);
+    menuItem(string itemId, string label, void *function, string consoleKey);
 
     void setItemId(string itemId);
     string getItemId();
@@ -21,8 +21,8 @@ public:
     void setLabel(string label);
     string getLabel();
 
-    void setConsoleKey(int consoleKey);
-    int getConsoleKey();
+    void setConsoleKey(string consoleKey);
+    string getConsoleKey();
 
     void setAction(void *function);
     void *getAction();
