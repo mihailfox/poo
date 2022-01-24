@@ -12,6 +12,7 @@ using namespace std;
 booksManager library;
 domainsManager domains;
 menu mainMenu;
+bool dataLoaded = false;
 
 void initMenu();
 void executeUserRequest();
@@ -42,8 +43,11 @@ int main() {
         cout << ex.what();
     }
 
-    library.save();
-    domains.saveDomains();
+    if (dataLoaded) {
+        library.save();
+        domains.saveDomains();
+    }
+
     return 0;
 }
 
@@ -59,7 +63,6 @@ void initMenu() {
     mainMenu.addMenuItem(menuItem("8", "Check loaned books return term", checkBorrowedBooks));
     mainMenu.addMenuItem(menuItem("0","Exit",exitApp));
     mainMenu.setExitItem("0");
-
 }
 
 void executeUserRequest() {
@@ -89,7 +92,8 @@ void executeUserRequest() {
 }
 
 void exitApp() {
-    exit(0);
+    cout << "Exiting application..." << endl;
+    return;
 }
 
 
@@ -97,11 +101,15 @@ void loadData() {
     library.load();
     domains.load();
 
+    dataLoaded = true;
+
     cout << "Loaded " << library.countBooks() << " books from ";
     cout << domains.countDomains() << " domains!" << endl;
 }
 
 void findBooks() {
+    cout << "Find books" << endl;
+
     string input = promptString("Input search term: ");
 
     vector<book> foundBooks = library.findBook(input);
@@ -122,6 +130,8 @@ void printBooks(vector<book> books) {
 }
 
 void deleteBook() {
+    cout << "Delete book" << endl;
+
     string input = promptString("Input id: ");
 
     if (library.deleteBook(input)) {
@@ -133,6 +143,8 @@ void deleteBook() {
 }
 
 void lendBook() {
+    cout << "Lend book" << endl;
+
     string input = promptString("Input id: ");
 
     if (library.lendBook(input)) {
@@ -143,6 +155,8 @@ void lendBook() {
 }
 
 void returnBook() {
+    cout << "Return book" << endl;
+
     string input = promptString("Input id: ");
 
     if (library.returnBook(input)) {
@@ -153,6 +167,8 @@ void returnBook() {
 }
 
 void checkBorrowedBooks() {
+    cout << "Past due date books" << endl;
+
     vector<book> books = library.getAllBooksPastReturnDate();
 
     if (books.empty()) {
@@ -163,6 +179,8 @@ void checkBorrowedBooks() {
 }
 
 void createNewDomain() {
+    cout << "Create new domain" << endl;
+
     string domainName = promptString("Input new domain name: ");
 
     if (domains.addDomain(domainName)) {
@@ -173,6 +191,8 @@ void createNewDomain() {
 }
 
 void addBookToDomain() {
+    cout << "Add new book" << endl;
+
     book carte;
 
     cout<<endl;
