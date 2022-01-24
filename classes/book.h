@@ -14,8 +14,6 @@ private:
     string author;
     bool borrowed = false;
     long int borrowedTime = 0;
-    bool strToBool(string input);
-    string boolToStr(bool input);
 public:
     book();
     book(string id, string title, string author, bool borrowed, long int borrowedTime);

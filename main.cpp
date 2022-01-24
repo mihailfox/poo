@@ -16,8 +16,6 @@ bool dataLoaded = false;
 
 void initMenu();
 void executeUserRequest();
-void clearScreen();
-void wait();
 
 void exitApp();
 void findBooks();
@@ -29,8 +27,7 @@ void checkBorrowedBooks();
 void createNewDomain();
 void addBookToDomain();
 void loadData();
-string promptString();
-string promptString(const string& message);
+
 
 int main() {
     try {
@@ -68,10 +65,10 @@ void initMenu() {
 void executeUserRequest() {
     string choice;
     do {
-        clearScreen();
+        helper::clearScreen();
 
         cout << mainMenu.toString();
-        choice = promptString();
+        choice = helper::promptString();
 
         menuItem temp = mainMenu.getMenuItem(choice);
         if (temp == mainMenu.getExitItem()) {
@@ -81,12 +78,12 @@ void executeUserRequest() {
 
         if (temp.getItemId().empty()) {
             cout << "Invalid option!" << endl;
-            wait();
+            helper::wait();
             continue;
         }
 
         helper::execute(temp.getAction());
-        wait();
+        helper::wait();
 
     } while (true);
 }
@@ -110,7 +107,7 @@ void loadData() {
 void findBooks() {
     cout << "Find books" << endl;
 
-    string input = promptString("Input search term: ");
+    string input = helper::promptString("Input search term: ");
 
     vector<book> foundBooks = library.findBook(input);
 
@@ -132,7 +129,7 @@ void printBooks(vector<book> books) {
 void deleteBook() {
     cout << "Delete book" << endl;
 
-    string input = promptString("Input id: ");
+    string input = helper::promptString("Input id: ");
 
     if (library.deleteBook(input)) {
         domains.removeFromDomain(input);
@@ -145,7 +142,7 @@ void deleteBook() {
 void lendBook() {
     cout << "Lend book" << endl;
 
-    string input = promptString("Input id: ");
+    string input = helper::promptString("Input id: ");
 
     if (library.lendBook(input)) {
         cout << "Book with id " << input << " has been lend" << endl;
@@ -157,7 +154,7 @@ void lendBook() {
 void returnBook() {
     cout << "Return book" << endl;
 
-    string input = promptString("Input id: ");
+    string input = helper::promptString("Input id: ");
 
     if (library.returnBook(input)) {
         cout << "Book with id " << input << " has been returned" << endl;
@@ -181,7 +178,7 @@ void checkBorrowedBooks() {
 void createNewDomain() {
     cout << "Create new domain" << endl;
 
-    string domainName = promptString("Input new domain name: ");
+    string domainName = helper::promptString("Input new domain name: ");
 
     if (domains.addDomain(domainName)) {
         cout << "domain added" << endl;
@@ -196,11 +193,11 @@ void addBookToDomain() {
     book carte;
 
     cout<<endl;
-    string domainName = promptString("Input existing domain: ");
+    string domainName = helper::promptString("Input existing domain: ");
 
-    carte.setTitle(promptString("Input book title: "));
-    carte.setAuthor(promptString("Input book author: "));
-    carte.setId(promptString("Input book id: "));
+    carte.setTitle(helper::promptString("Input book title: "));
+    carte.setAuthor(helper::promptString("Input book author: "));
+    carte.setId(helper::promptString("Input book id: "));
 
     if (!library.addBook(carte)) {
         cout << "A book with same id already exists" << endl;
@@ -215,32 +212,4 @@ void addBookToDomain() {
     }
 }
 
-
-void clearScreen() {
-#ifdef _WIN32
-    system("cls");
-#elif defined(_UNIX)
-    system("clear");
-#endif
-}
-
-void wait()
-{
-    cout << "Press ENTER to continue...";
-    cin.ignore();
-}
-
-string promptString()
-{
-    string input;
-    getline(cin, input);
-
-    return input;
-}
-
-string promptString(const string& message) {
-    cout << message << endl;
-
-    return promptString();
-}
 

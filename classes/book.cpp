@@ -2,6 +2,7 @@
 
 #include <stdexcept>
 #include <iostream>
+#include "helper.h"
 
 using namespace std;
 
@@ -36,7 +37,7 @@ book::book(vector<string> input) {
     this->id = input[0];
     this->title = input[1];
     this->author = input[2];
-    this->borrowed = strToBool(input[3]);
+    this->borrowed = helper::strToBool(input[3]);
     this->borrowedTime = stol(input[4]);
 }
 
@@ -102,7 +103,7 @@ vector<string> book::toVector() {
     output.push_back(this->id);
     output.push_back(this->title);
     output.push_back(this->author);
-    output.push_back(boolToStr(this->borrowed));
+    output.push_back(helper::boolToStr(this->borrowed));
     output.push_back(to_string(this->borrowedTime));
 
     return output;
@@ -122,17 +123,3 @@ book::~book() {
     this->borrowedTime = 0;
 }
 
-bool book::strToBool(string input) {
-    if (input == "false") {
-        return false;
-    }
-    return true;
-}
-
-string book::boolToStr(bool input) {
-    if (input == false)
-    {
-        return "false";
-    }
-    return "true";
-}
