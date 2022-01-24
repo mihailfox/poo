@@ -6,7 +6,7 @@
 #include <sstream>
 #include "csvFile.h"
 
-csvFile::csvFile() { }
+csvFile::csvFile() = default;
 
 csvFile::csvFile(string fileName, char fieldDelimiter) {
     if(fileName.empty() || isalpha(fieldDelimiter) || isdigit(fieldDelimiter)) {
@@ -81,7 +81,7 @@ vector<vector<string>> csvFile::getFileContent() {
             }
         }
     }
-    catch (exception ex) {
+    catch (exception &ex) {
         throw ex;
     }
 

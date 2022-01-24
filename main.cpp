@@ -5,87 +5,108 @@
 #include "classes/menu.h"
 #include "classes/booksManager.h"
 #include "classes/domainsManager.h"
+#include "classes/helper.h"
 
 using namespace std;
 
-vector<menuItem> createMenuItems();
-void exitApp();
-void execute(void *function);
-void initMenu();
-void wait();
-booksManager biblioteca;
+booksManager library;
 domainsManager domains;
+menu mainMenu;
+
 void initMenu();
+void executeUserRequest();
+void clearScreen();
+void wait();
+
+void exitApp();
+void findBooks();
 void printBooks(vector<book> books);
-string getInput();
-string getInput(string message);
+void deleteBook();
+void lendBook();
+void returnBook();
+void checkBorrowedBooks();
+void createNewDomain();
+void addBookToDomain();
+void loadData();
+string promptString();
+string promptString(const string& message);
 
 int main() {
     try {
-        biblioteca = booksManager("books.in", ';');
+        library = booksManager("carti.in", ';');
         domains = domainsManager("domenii.in", ';');
         initMenu();
-
-
+        executeUserRequest();
     }
     catch (exception ex) {
         cout << ex.what();
     }
 
-
-    biblioteca.saveBooks();
+    library.save();
     domains.saveDomains();
     return 0;
 }
 
 void initMenu() {
-    vector<menuItem> menuItems = createMenuItems();
-    menu mainMenu("Biblioteca", menuItems);
-    mainMenu.setExitItem(menuItem("0","Exit",exitApp,"0"));
+    mainMenu = menu("Biblioteca");
+    mainMenu.addMenuItem(menuItem("1", "Load data", loadData));
+    mainMenu.addMenuItem(menuItem("2", "Create new domain", createNewDomain));
+    mainMenu.addMenuItem(menuItem("3", "Add book to domain", addBookToDomain));
+    mainMenu.addMenuItem(menuItem("4", "Search books by title or author", findBooks));
+    mainMenu.addMenuItem(menuItem("5", "Delete book", deleteBook));
+    mainMenu.addMenuItem(menuItem("6", "Lend book", lendBook));
+    mainMenu.addMenuItem(menuItem("7", "Return book", returnBook));
+    mainMenu.addMenuItem(menuItem("8", "Check loaned books return term", checkBorrowedBooks));
+    mainMenu.addMenuItem(menuItem("0","Exit",exitApp));
+    mainMenu.setExitItem("0");
 
+}
 
+void executeUserRequest() {
     string choice;
     do {
-        system("cls");
-        // system("clear); // for linux OS
+        clearScreen();
 
         cout << mainMenu.toString();
-        choice = getInput();
-        for (int i = 0; i < menuItems.size(); ++i) {
-            if (menuItems[i].getConsoleKey() == choice) {
-                execute(menuItems[i].getAction());
-                wait();
-                break;
-            }
+        choice = promptString();
+
+        menuItem temp = mainMenu.getMenuItem(choice);
+        if (temp == mainMenu.getExitItem()) {
+            helper::execute(temp.getAction());
+            return;
         }
 
-    } while (choice != mainMenu.getExitItem().getConsoleKey());
+        if (temp.getItemId().empty()) {
+            cout << "Invalid option!" << endl;
+            wait();
+            continue;
+        }
+
+        helper::execute(temp.getAction());
+        wait();
+
+    } while (true);
 }
-
-string getInput()
-{
-    string input;
-    getline(cin, input);
-
-    return input;
-}
-
 
 void exitApp() {
-    return;
+    exit(0);
 }
 
+
 void loadData() {
-    biblioteca.loadBooks();
-    domains.loadDomains();
+    library.load();
+    domains.load();
+
+    cout << "Loaded " << library.countBooks() << " books from ";
+    cout << domains.countDomains() << " domains!" << endl;
 }
 
 void findBooks() {
-    string input = getInput("Input search term: ");
+    string input = promptString("Input search term: ");
 
-    vector<book> foundBooks = biblioteca.findBook(input);
+    vector<book> foundBooks = library.findBook(input);
 
-    if (foundBooks.size() == 0) {
+    if (foundBooks.empty()) {
         cout << "No books found for search term " << input << endl;
         return;
     }
@@ -101,9 +122,9 @@ void printBooks(vector<book> books) {
 }
 
 void deleteBook() {
-    string input = getInput("Input id: ");
+    string input = promptString("Input id: ");
 
-    if (biblioteca.deleteBook(input)) {
+    if (library.deleteBook(input)) {
         domains.removeFromDomain(input);
         cout << "Book with id " << input << " has been successfully deleted" << endl;
     } else {
@@ -112,9 +133,9 @@ void deleteBook() {
 }
 
 void lendBook() {
-    string input = getInput("Input id: ");
+    string input = promptString("Input id: ");
 
-    if (biblioteca.lendBook(input)) {
+    if (library.lendBook(input)) {
         cout << "Book with id " << input << " has been lend" << endl;
     } else {
         cout << "Book not found or book already lend" << endl;
@@ -122,17 +143,17 @@ void lendBook() {
 }
 
 void returnBook() {
-    string input = getInput("Input id: ");
+    string input = promptString("Input id: ");
 
-    if (biblioteca.returnBook(input)) {
+    if (library.returnBook(input)) {
         cout << "Book with id " << input << " has been returned" << endl;
     } else {
         cout << "Book not found or book already returned" << endl;
     }
 }
 
-void checkLendBooks() {
-    vector<book> books = biblioteca.getAllBooksPastReturnDate();
+void checkBorrowedBooks() {
+    vector<book> books = library.getAllBooksPastReturnDate();
 
     if (books.empty()) {
         cout << "No books found past return date" << endl;
@@ -142,7 +163,7 @@ void checkLendBooks() {
 }
 
 void createNewDomain() {
-    string domainName = getInput("Input new domain name: ");
+    string domainName = promptString("Input new domain name: ");
 
     if (domains.addDomain(domainName)) {
         cout << "domain added" << endl;
@@ -155,16 +176,13 @@ void addBookToDomain() {
     book carte;
 
     cout<<endl;
-    string domainName = getInput("Input existing domain: ");
+    string domainName = promptString("Input existing domain: ");
 
-    string temp = getInput("Input book title: ");
-    carte.setTitle(temp);
-    temp = getInput("Input book author: ");
-    carte.setAuthor(temp);
-    temp = getInput("Input book id: ");
-    carte.setId(temp);
+    carte.setTitle(promptString("Input book title: "));
+    carte.setAuthor(promptString("Input book author: "));
+    carte.setId(promptString("Input book id: "));
 
-    if (!biblioteca.addBook(carte)) {
+    if (!library.addBook(carte)) {
         cout << "A book with same id already exists" << endl;
         return;
     }
@@ -172,28 +190,18 @@ void addBookToDomain() {
     if (domains.addToDomain(carte, domainName)) {
         cout << "Book has been added to domain" << endl;
     } else {
-        biblioteca.deleteBook(carte.getId());
+        library.deleteBook(carte.getId());
         cout << "Domain does not exist" << endl;
     }
 }
 
-void execute(void *function) {
-    ((void(*)())function)();
-}
 
-vector<menuItem> createMenuItems() {
-    vector<menuItem> menuItems;
-
-    menuItems.push_back(menuItem("1", "Load data", loadData, "1"));
-    menuItems.push_back(menuItem("2", "Create new domain", createNewDomain, "2"));
-    menuItems.push_back(menuItem("3", "Add book to domain", addBookToDomain, "3"));
-    menuItems.push_back(menuItem("4", "Search books by title or author", findBooks, "4"));
-    menuItems.push_back(menuItem("5", "Delete book", deleteBook, "5"));
-    menuItems.push_back(menuItem("6", "Lend book", lendBook, "6"));
-    menuItems.push_back(menuItem("7", "Return book", returnBook, "7"));
-    menuItems.push_back(menuItem("8", "Check loaned books return term", checkLendBooks, "8"));
-
-    return menuItems;
+void clearScreen() {
+#ifdef _WIN32
+    system("cls");
+#elif defined(_UNIX)
+    system("clear");
+#endif
 }
 
 void wait()
@@ -202,9 +210,17 @@ void wait()
     cin.ignore();
 }
 
-string getInput(string message) {
+string promptString()
+{
+    string input;
+    getline(cin, input);
+
+    return input;
+}
+
+string promptString(const string& message) {
     cout << message << endl;
 
-    return getInput();
+    return promptString();
 }
 

@@ -12,7 +12,7 @@ booksManager::booksManager(string fileName, char fieldDelimiter) {
     this->fieldDelimiter = fieldDelimiter;
 }
 
-void booksManager::loadBooks() {
+void booksManager::load() {
     this->books.clear();
     csvFile input(fileName, fieldDelimiter);
     vector<vector<string>> temp;
@@ -29,7 +29,7 @@ void booksManager::loadBooks() {
     }
 }
 
-void booksManager::saveBooks() {
+void booksManager::save() {
     csvFile output(fileName, fieldDelimiter);
     vector<vector<string>> temp;
 
@@ -100,7 +100,7 @@ bool booksManager::lendBook(string id) {
     }
 
     books[index].setBorrowed(true);
-    books[index].setLendTime(time(nullptr));
+    books[index].setBorrowedTime(time(nullptr));
 
     return true;
 }
@@ -113,7 +113,7 @@ bool booksManager::returnBook(string id) {
     }
 
     books[index].setBorrowed(false);
-    books[index].setLendTime(0);
+    books[index].setBorrowedTime(0);
 
     return true;
 }
@@ -125,4 +125,8 @@ bool booksManager::addBook(book book) {
 
     this->books.push_back(book);
     return true;
+}
+
+int booksManager::countBooks() {
+    return books.size();
 }

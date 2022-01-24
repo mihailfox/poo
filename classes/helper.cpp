@@ -17,3 +17,8 @@ bool helper::stringContains(string input, string pattern) {
 bool helper::stringsEqual(string string1, string string2) {
     return toLower(string1) == toLower(string2);
 }
+
+void helper::execute(void *function) {
+    ((void(*)())function)();
+}
+

@@ -11,6 +11,7 @@ private:
 public:
     static bool stringContains(string input, string pattern);
     static bool stringsEqual(string string1, string string2);
+    static void helper::execute(void *function);
 };
 
 

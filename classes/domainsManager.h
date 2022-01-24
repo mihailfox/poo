@@ -17,11 +17,12 @@ private:
 public:
     domainsManager();
     domainsManager(string fileName, char fieldDelimiter);
-    void loadDomains();
+    void load();
     void saveDomains();
     bool addDomain(string domainName);
     bool addToDomain(book book, string domainName);
     void removeFromDomain(string bookId);
+    int countDomains();
 };
 
 

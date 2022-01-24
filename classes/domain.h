@@ -13,8 +13,8 @@ private:
     bool searchById(string id);
 public:
     domain();
-    domain(string name);
-    domain(vector<string> input);
+    explicit domain(string name);
+    explicit domain(vector<string> input);
 
     void setName(string name);
     string getName();

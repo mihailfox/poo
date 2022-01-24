@@ -18,14 +18,15 @@ private:
 public:
     booksManager();
     booksManager(string fileName, char fieldDelimiter);
-    void loadBooks();
-    void saveBooks();
+    void load();
+    void save();
     bool deleteBook(string id);
     vector<book> findBook(string pattern);
     vector<book> getAllBooksPastReturnDate();
     bool lendBook(string id);
     bool returnBook(string id);
     bool addBook(book book);
+    int countBooks();
 };
 
 

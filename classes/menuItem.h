@@ -9,11 +9,10 @@ class menuItem {
 protected:
     string itemId;
     string label;
-    string consoleKey;
     void *function;
 public:
     menuItem();
-    menuItem(string itemId, string label, void *function, string consoleKey);
+    menuItem(string itemId, string label, void *function);
 
     void setItemId(string itemId);
     string getItemId();
@@ -21,13 +20,14 @@ public:
     void setLabel(string label);
     string getLabel();
 
-    void setConsoleKey(string consoleKey);
-    string getConsoleKey();
-
     void setAction(void *function);
     void *getAction();
 
     string toString();
+
+    bool operator==(const menuItem &rhs) const;
+
+    bool operator!=(const menuItem &rhs) const;
 
     ~menuItem();
 

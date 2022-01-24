@@ -8,7 +8,7 @@ domainsManager::domainsManager(string fileName, char fieldDelimiter) {
     this->fieldDelimiter = fieldDelimiter;
 }
 
-void domainsManager::loadDomains() {
+void domainsManager::load() {
     this->domains.clear();
     csvFile input(fileName, fieldDelimiter);
     vector<vector<string>> temp;
@@ -63,4 +63,8 @@ void domainsManager::removeFromDomain(string bookId) {
     for (int i = 0; i < domains.size(); ++i) {
         domains[i].removeBookId(bookId);
     }
+}
+
+int domainsManager::countDomains() {
+    return domains.size();
 }

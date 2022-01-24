@@ -12,9 +12,17 @@ private:
     menuItem exitItem;
 public:
     menu();
-    menu(string header, vector<menuItem> menuItems);
-    void setExitItem(menuItem exitItem);
+    menu(string header);
+
+    void addMenuItem(menuItem item);
+
+    menuItem getMenuItem(string id);
+
+    int menu::menuItemsCount();
+
+    void setExitItem(string id);
     menuItem getExitItem();
+
     string toString();
     ~menu();
 };

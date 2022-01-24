@@ -19,7 +19,7 @@ private:
 public:
     book();
     book(string id, string title, string author, bool borrowed, long int borrowedTime);
-    book(vector<string> input);
+    explicit book(vector<string> input);
 
     void setId(string input);
     string getId();
@@ -33,7 +33,7 @@ public:
     void setBorrowed(bool input);
     bool getBorrowed();
 
-    void setLendTime(long int input);
+    void setBorrowedTime(long int input);
     long int getLendTime();
 
     vector<string> toVector();

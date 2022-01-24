@@ -3,11 +3,10 @@
 
 menuItem::menuItem() { }
 
-menuItem::menuItem(string itemId, string label, void *function, string consoleKey) {
+menuItem::menuItem(string itemId, string label, void *function) {
     this->itemId = itemId;
     this->label = label;
     this->function = function;
-    this->consoleKey = consoleKey;
 }
 
 void menuItem::setItemId(string itemId) {
@@ -16,14 +15,6 @@ void menuItem::setItemId(string itemId) {
 
 string menuItem::getItemId() {
     return this->itemId;
-}
-
-void menuItem::setConsoleKey(string consoleKey) {
-    this->consoleKey = consoleKey;
-}
-
-string menuItem::getConsoleKey() {
-    return this->consoleKey;
 }
 
 void menuItem::setAction(void *function) {
@@ -42,5 +33,15 @@ string menuItem::toString() {
 menuItem::~menuItem() {
     this->itemId.clear();
     this->label.clear();
+}
+
+bool menuItem::operator==(const menuItem &rhs) const {
+    return itemId == rhs.itemId &&
+           label == rhs.label &&
+           function == rhs.function;
+}
+
+bool menuItem::operator!=(const menuItem &rhs) const {
+    return !(rhs == *this);
 }
 

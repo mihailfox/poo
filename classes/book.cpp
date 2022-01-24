@@ -88,7 +88,7 @@ bool book::getBorrowed() {
     return this->borrowed;
 }
 
-void book::setLendTime(long input) {
+void book::setBorrowedTime(long input) {
     this->borrowedTime = input;
 }
 
