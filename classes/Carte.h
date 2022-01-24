@@ -14,14 +14,13 @@ private:
     string cota;
     string titlu;
     string autor;
-    string domeniu;
-    bool imprumutat;
-    long int lendTime;
+    bool imprumutat = false;
+    long int lendTime = 0;
     bool strToBool(string input);
     string boolToStr(bool input);
 public:
     Carte();
-    Carte(string cota, string titlu, string autor, string domeniu, bool imprumutat, long int lendTime);
+    Carte(string cota, string titlu, string autor, bool imprumutat, long int lendTime);
     Carte(vector<string> input);
 
     void setCota(string input);
@@ -32,9 +31,6 @@ public:
 
     void setAutor(string input);
     string getAutor();
-
-    void setDomeniu(string input);
-    string getDomeniu();
 
     void setImprumutat(bool input);
     bool getImprumutat();

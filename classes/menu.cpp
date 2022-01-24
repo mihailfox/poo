@@ -26,7 +26,6 @@ string menu::toString() {
 
     menu << endl;
     menu << "Please select an option: ";
-    menu << endl;
 
     return menu.str();
 }

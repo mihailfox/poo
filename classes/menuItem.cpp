@@ -3,7 +3,7 @@
 
 menuItem::menuItem() { }
 
-menuItem::menuItem(string itemId, string label, void *function, char consoleKey) {
+menuItem::menuItem(string itemId, string label, void *function, int consoleKey) {
     this->itemId = itemId;
     this->label = label;
     this->function = function;
@@ -18,11 +18,11 @@ string menuItem::getItemId() {
     return this->itemId;
 }
 
-void menuItem::setConsoleKey(char consoleKey) {
+void menuItem::setConsoleKey(int consoleKey) {
     this->consoleKey = consoleKey;
 }
 
-char menuItem::getConsoleKey() {
+int menuItem::getConsoleKey() {
     return this->consoleKey;
 }
 

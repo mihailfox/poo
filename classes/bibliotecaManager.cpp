@@ -1,6 +1,7 @@
 #include "bibliotecaManager.h"
 #include "csvFile.h"
 #include <string>
+#include "helper.h"
 
 using namespace std;
 
@@ -11,7 +12,8 @@ bibliotecaManager::bibliotecaManager(string fileName, char fieldDelimiter) {
     this->fieldDelimiter = fieldDelimiter;
 }
 
-void bibliotecaManager::loadCarti() {
+void bibliotecaManager::loadBooks() {
+    this->carti.clear();
     csvFile input(fileName, fieldDelimiter);
     vector<vector<string>> temp;
 
@@ -42,8 +44,9 @@ vector<Carte> bibliotecaManager::findCarte(string pattern) {
     vector<Carte> foundCarti;
 
     for (int i = 0; i < carti.size(); ++i) {
-        if ((carti[i].getAutor()).find(pattern) != string::npos ||
-            (carti[i].getTitlu()).find(pattern) != string::npos) {
+
+        if (helper::stringContains(carti[i].getAutor(), pattern) ||
+            helper::stringContains(carti[i].getTitlu(), pattern)) {
             foundCarti.push_back(carti[i]);
         }
     }
@@ -53,27 +56,29 @@ vector<Carte> bibliotecaManager::findCarte(string pattern) {
 
 int bibliotecaManager::getIndexCarte(string cota) {
     for (int i = 0; i < carti.size(); ++i) {
-        if (carti[i].getCota() == cota)
-        {
+        if (helper::stringsEqual(carti[i].getCota(), cota)) {
             return i;
         }
     }
+
     return -1;
 }
 
-void bibliotecaManager::deleteCarte(string cotaCarte) {
+bool bibliotecaManager::deleteCarte(string cotaCarte) {
     int index = getIndexCarte(cotaCarte);
 
     if (index == -1) {
-        return;
+        return false;
     }
     carti.erase(carti.begin() + index);
+    return true;
 }
 
 bool bibliotecaManager::isPastReturnDate(Carte carte) {
     time_t now = time(nullptr);
+    long int lendPeriod = now - carte.getLendTime();
 
-    return now - carte.getLendTime() > this->returnPeriod;
+    return lendPeriod > this->returnPeriod && carte.getImprumutat();
 }
 
 vector<Carte> bibliotecaManager::getAllBooksPastReturnDate() {
@@ -87,16 +92,37 @@ vector<Carte> bibliotecaManager::getAllBooksPastReturnDate() {
     return booksPastReturnDate;
 }
 
-void bibliotecaManager::lendCarte(string cotaCarte) {
+bool bibliotecaManager::lendCarte(string cotaCarte) {
     int index = getIndexCarte(cotaCarte);
+
+    if (index < 0 || carti[index].getImprumutat()) {
+        return false;
+    }
 
     carti[index].setImprumutat(true);
     carti[index].setLendTime(time(nullptr));
+
+    return true;
 }
 
-void bibliotecaManager::returnCarte(string cotaCarte) {
+bool bibliotecaManager::returnCarte(string cotaCarte) {
     int index = getIndexCarte(cotaCarte);
+
+    if (index < 0 || !carti[index].getImprumutat()) {
+        return false;
+    }
 
     carti[index].setImprumutat(false);
     carti[index].setLendTime(0);
+
+    return true;
+}
+
+bool bibliotecaManager::addBook(Carte carte) {
+    if (getIndexCarte(carte.getCota()) >= 0) {
+        return false;
+    }
+
+    this->carti.push_back(carte);
+    return true;
 }
