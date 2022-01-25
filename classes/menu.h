@@ -12,15 +12,15 @@ private:
     menuItem exitItem;
 public:
     menu();
-    menu(string header);
+    explicit menu(const string& header);
 
     void addMenuItem(menuItem item);
 
-    menuItem getMenuItem(string id);
+    menuItem getMenuItem(const string& id);
 
-    int menuItemsCount();
+    unsigned int menuItemsCount();
 
-    void setExitItem(string id);
+    void setExitItem(const string& id);
     menuItem getExitItem();
 
     string toString();

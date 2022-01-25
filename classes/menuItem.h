@@ -9,10 +9,10 @@ class menuItem {
 protected:
     string itemId;
     string label;
-    void *function;
+    void *action;
 public:
     menuItem();
-    menuItem(string itemId, string label, void *function);
+    menuItem(string itemId, string label, void *action);
 
     void setItemId(string itemId);
     string getItemId();
@@ -20,7 +20,7 @@ public:
     void setLabel(string label);
     string getLabel();
 
-    void setAction(void *function);
+    void setAction(void *action);
     void *getAction();
 
     string toString();

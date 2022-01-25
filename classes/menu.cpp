@@ -5,14 +5,13 @@
 
 menu::menu() = default;
 
-menu::menu(string header) {
+menu::menu(const string& header) {
     if(header.empty())
     {
         throw invalid_argument("Received an empty or invalid argument!");
     }
 
     this->header = header;
-    this->menuItems = menuItems;
 }
 
 void menu::addMenuItem(menuItem menuItem) {
@@ -21,16 +20,16 @@ void menu::addMenuItem(menuItem menuItem) {
     }
 }
 
-menuItem menu::getMenuItem(string id) {
+menuItem menu::getMenuItem(const string& id) {
     for (int i = 0; i < menuItemsCount(); ++i) {
         if (menuItems[i].getItemId() == id) {
             return menuItems[i];
         }
     }
-    return menuItem();
+    return {};
 }
 
-int menu::menuItemsCount() {
+unsigned int menu::menuItemsCount() {
     return menuItems.size();
 }
 
@@ -47,7 +46,7 @@ string menu::toString() {
     return menu.str();
 }
 
-void menu::setExitItem(string id) {
+void menu::setExitItem(const string& id) {
     this->exitItem = getMenuItem(id);
 }
 

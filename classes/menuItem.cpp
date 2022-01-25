@@ -1,12 +1,11 @@
-#include <iostream>
 #include "menuItem.h"
 
 menuItem::menuItem() = default;
 
-menuItem::menuItem(string itemId, string label, void *function) {
+menuItem::menuItem(string itemId, string label, void *action) {
     this->itemId = itemId;
     this->label = label;
-    this->function = function;
+    this->action = action;
 }
 
 void menuItem::setItemId(string itemId) {
@@ -17,12 +16,20 @@ string menuItem::getItemId() {
     return this->itemId;
 }
 
-void menuItem::setAction(void *function) {
-    this->function = function;
+void menuItem::setAction(void *action) {
+    this->action = action;
 }
 
 void *menuItem::getAction() {
-    return function;
+    return this->action;
+}
+
+void menuItem::setLabel(string label) {
+    this->label = label;
+}
+
+string menuItem::getLabel() {
+    return this->label;
 }
 
 
@@ -47,7 +54,7 @@ menuItem::~menuItem() {
 bool menuItem::operator==(const menuItem &rhs) const {
     return itemId == rhs.itemId &&
            label == rhs.label &&
-           function == rhs.function;
+           action == rhs.action;
 }
 
 bool menuItem::operator!=(const menuItem &rhs) const {
