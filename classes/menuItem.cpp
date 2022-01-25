@@ -1,7 +1,7 @@
 #include <iostream>
 #include "menuItem.h"
 
-menuItem::menuItem() { }
+menuItem::menuItem() = default;
 
 menuItem::menuItem(string itemId, string label, void *function) {
     this->itemId = itemId;

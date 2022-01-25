@@ -11,7 +11,7 @@ private:
 public:
     static bool stringContains(string input, string pattern);
     static bool stringsEqual(string string1, string string2);
-    static void helper::execute(void *function);
+    static void execute(void *function);
     static void clearScreen();
     static string promptString();
     static string promptString(const string& message);
