@@ -1,6 +1,5 @@
 #ifndef POO_BOOK_H
 #define POO_BOOK_H
-
 #include <string>
 #include <vector>
 #include <ctime>

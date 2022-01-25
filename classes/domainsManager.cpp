@@ -1,5 +1,4 @@
 #include "domainsManager.h"
-#include "helper.h"
 
 domainsManager::domainsManager() = default;
 

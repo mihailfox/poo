@@ -1,6 +1,7 @@
-#include "menu.h"
 #include <sstream>
 #include <stdexcept>
+#include "menu.h"
+
 
 menu::menu() = default;
 
@@ -40,7 +41,6 @@ string menu::toString() {
     }
 
     menu << endl;
-    menu << "Please select an option: ";
 
     return menu.str();
 }

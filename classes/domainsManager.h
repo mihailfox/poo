@@ -5,6 +5,8 @@
 #include "domain.h"
 #include "csvFile.h"
 #include "book.h"
+#include "helper.h"
+
 
 using namespace std;
 

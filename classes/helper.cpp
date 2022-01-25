@@ -1,5 +1,5 @@
 #include "helper.h"
-#include "sstream"
+#include <sstream>
 #include <iostream>
 #include <string>
 
@@ -43,13 +43,15 @@ void helper::wait()
 string helper::promptString()
 {
     string input;
-    getline(cin, input);
+    do {
+        getline(cin, input);
+    } while (input == "");
 
     return input;
 }
 
 string helper::promptString(const string& message) {
-    cout << message << endl;
+    cout << message;
 
     return promptString();
 }
