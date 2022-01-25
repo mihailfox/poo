@@ -15,9 +15,9 @@ public:
     static void clearScreen();
     static string promptString();
     static string promptString(const string& message);
-    static void helper::wait();
-    static string helper::boolToStr(bool input);
-    static bool helper::strToBool(string input);
+    static void wait();
+    static string boolToStr(bool input);
+    static bool strToBool(string input);
 };
 
 

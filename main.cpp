@@ -50,15 +50,15 @@ int main() {
 
 void initMenu() {
     mainMenu = menu("Biblioteca");
-    mainMenu.addMenuItem(menuItem("1", "Load data", loadData));
-    mainMenu.addMenuItem(menuItem("2", "Create new domain", createNewDomain));
-    mainMenu.addMenuItem(menuItem("3", "Add book to domain", addBookToDomain));
-    mainMenu.addMenuItem(menuItem("4", "Search books by title or author", findBooks));
-    mainMenu.addMenuItem(menuItem("5", "Delete book", deleteBook));
-    mainMenu.addMenuItem(menuItem("6", "Lend book", lendBook));
-    mainMenu.addMenuItem(menuItem("7", "Return book", returnBook));
-    mainMenu.addMenuItem(menuItem("8", "Check loaned books return term", checkBorrowedBooks));
-    mainMenu.addMenuItem(menuItem("0","Exit",exitApp));
+    mainMenu.addMenuItem(menuItem("1", "Load data", (void *)loadData));
+    mainMenu.addMenuItem(menuItem("2", "Create new domain", (void *)createNewDomain));
+    mainMenu.addMenuItem(menuItem("3", "Add book to domain", (void *)addBookToDomain));
+    mainMenu.addMenuItem(menuItem("4", "Search books by title or author", (void *)findBooks));
+    mainMenu.addMenuItem(menuItem("5", "Delete book", (void *)deleteBook));
+    mainMenu.addMenuItem(menuItem("6", "Lend book", (void *)lendBook));
+    mainMenu.addMenuItem(menuItem("7", "Return book", (void *)returnBook));
+    mainMenu.addMenuItem(menuItem("8", "Check loaned books return term", (void *)checkBorrowedBooks));
+    mainMenu.addMenuItem(menuItem("0","Exit",(void *)exitApp));
     mainMenu.setExitItem("0");
 }
 
@@ -68,7 +68,7 @@ void executeUserRequest() {
         helper::clearScreen();
 
         cout << mainMenu.toString();
-        choice = helper::promptString();
+        choice = helper::promptString("Please select an option: ");
 
         menuItem temp = mainMenu.getMenuItem(choice);
         if (temp == mainMenu.getExitItem()) {
