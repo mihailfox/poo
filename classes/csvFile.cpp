@@ -50,7 +50,7 @@ void csvFile::setFileContent(vector<vector<string>> fileContent) {
             }
         }
     }
-    catch (exception ex)
+    catch (exception &ex)
     {
         throw ex;
     }

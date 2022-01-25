@@ -32,7 +32,7 @@ int main() {
         initMenu();
         executeUserRequest();
     }
-    catch (exception ex) {
+    catch (exception &ex) {
         cout << ex.what();
     }
 

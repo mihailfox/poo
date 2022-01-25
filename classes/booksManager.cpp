@@ -24,7 +24,7 @@ void booksManager::load() {
             books.push_back((book(temp[i])));
         }
     }
-    catch (exception ex) {
+    catch (exception &ex) {
         throw ex;
     }
 }
