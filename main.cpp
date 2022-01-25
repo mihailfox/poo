@@ -1,13 +1,9 @@
-#include <iostream>
-#include <vector>
 #include "classes/book.h"
 #include "classes/menuItem.h"
 #include "classes/menu.h"
 #include "classes/booksManager.h"
 #include "classes/domainsManager.h"
 #include "classes/helper.h"
-
-using namespace std;
 
 booksManager library;
 domainsManager domains;
@@ -71,15 +67,16 @@ void executeUserRequest() {
         choice = helper::promptString("Please select an option: ");
 
         menuItem temp = mainMenu.getMenuItem(choice);
-        if (temp == mainMenu.getExitItem()) {
-            helper::execute(temp.getAction());
-            return;
-        }
 
-        if (temp.getItemId().empty()) {
+        if (temp.isInitialized() == false) {
             cout << "Invalid option!" << endl;
             helper::wait();
             continue;
+        }
+
+        if (temp == mainMenu.getExitItem()) {
+            helper::execute(temp.getAction());
+            return;
         }
 
         helper::execute(temp.getAction());

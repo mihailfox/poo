@@ -16,7 +16,9 @@ menu::menu(string header) {
 }
 
 void menu::addMenuItem(menuItem menuItem) {
-    this->menuItems.push_back(menuItem);
+    if(menuItem.isInitialized()) {
+        this->menuItems.push_back(menuItem);
+    }
 }
 
 menuItem menu::getMenuItem(string id) {

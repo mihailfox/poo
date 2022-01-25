@@ -18,7 +18,7 @@ public:
 
     menuItem getMenuItem(string id);
 
-    int menu::menuItemsCount();
+    int menuItemsCount();
 
     void setExitItem(string id);
     menuItem getExitItem();

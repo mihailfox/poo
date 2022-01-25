@@ -25,6 +25,8 @@ public:
 
     string toString();
 
+    bool isInitialized();
+
     bool operator==(const menuItem &rhs) const;
 
     bool operator!=(const menuItem &rhs) const;

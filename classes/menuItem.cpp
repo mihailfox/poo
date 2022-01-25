@@ -30,6 +30,15 @@ string menuItem::toString() {
     return this->itemId + ". " + this->label;
 }
 
+bool menuItem::isInitialized() {
+    if(this->itemId.empty() && this->label.empty())
+    {
+        return false;
+    }
+
+    return true;
+}
+
 menuItem::~menuItem() {
     this->itemId.clear();
     this->label.clear();
