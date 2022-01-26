@@ -3,10 +3,12 @@
 #include "classes/menu.h"
 #include "classes/booksManager.h"
 #include "classes/domainsManager.h"
-#include "classes/helper.h"
 
-booksManager library;
-domainsManager domains;
+const string booksFile = "carti.in";
+const string domainsFile = "domenii.in";
+const char csvFieldDelimiter = ';';
+booksManager libraryBooksManager;
+domainsManager libraryDomainsManager;
 menu mainMenu;
 bool dataLoaded = false;
 
@@ -27,8 +29,8 @@ void loadData();
 
 int main() {
     try {
-        library = booksManager("carti.in", ';');
-        domains = domainsManager("domenii.in", ';');
+        libraryBooksManager = booksManager(booksFile, csvFieldDelimiter);
+        libraryDomainsManager = domainsManager(domainsFile, csvFieldDelimiter);
         initMenu();
         executeUserRequest();
     }
@@ -37,8 +39,8 @@ int main() {
     }
 
     if (dataLoaded) {
-        library.save();
-        domains.saveDomains();
+        libraryBooksManager.save();
+        libraryDomainsManager.saveDomains();
     }
 
     return 0;
@@ -92,13 +94,13 @@ void exitApp() {
 
 
 void loadData() {
-    library.load();
-    domains.load();
+    libraryBooksManager.load();
+    libraryDomainsManager.load();
 
     dataLoaded = true;
 
-    cout << "Loaded " << library.countBooks() << " books from ";
-    cout << domains.countDomains() << " domains!" << endl;
+    cout << "Loaded " << libraryBooksManager.countBooks() << " books from ";
+    cout << libraryDomainsManager.countDomains() << " domains!" << endl;
 }
 
 void findBooks() {
@@ -106,7 +108,7 @@ void findBooks() {
 
     string input = helper::promptString("Input search term: ");
 
-    vector<book> foundBooks = library.findBook(input);
+    vector<book> foundBooks = libraryBooksManager.findBook(input);
 
     if (foundBooks.empty()) {
         cout << "No books found for search term " << input << endl;
@@ -128,8 +130,8 @@ void deleteBook() {
 
     string input = helper::promptString("Input id: ");
 
-    if (library.deleteBook(input)) {
-        domains.removeFromDomain(input);
+    if (libraryBooksManager.deleteBook(input)) {
+        libraryDomainsManager.removeFromDomain(input);
         cout << "Book with id " << input << " has been successfully deleted" << endl;
     } else {
         cout << "No book found with id " << input << endl;
@@ -141,7 +143,7 @@ void lendBook() {
 
     string input = helper::promptString("Input id: ");
 
-    if (library.lendBook(input)) {
+    if (libraryBooksManager.lendBook(input)) {
         cout << "Book with id " << input << " has been lend" << endl;
     } else {
         cout << "Book not found or book already lend" << endl;
@@ -153,7 +155,7 @@ void returnBook() {
 
     string input = helper::promptString("Input id: ");
 
-    if (library.returnBook(input)) {
+    if (libraryBooksManager.returnBook(input)) {
         cout << "Book with id " << input << " has been returned" << endl;
     } else {
         cout << "Book not found or book already returned" << endl;
@@ -163,7 +165,7 @@ void returnBook() {
 void checkBorrowedBooks() {
     cout << "Past due date books" << endl;
 
-    vector<book> books = library.getAllBooksPastReturnDate();
+    vector<book> books = libraryBooksManager.getAllBooksPastReturnDate();
 
     if (books.empty()) {
         cout << "No books found past return date" << endl;
@@ -177,7 +179,7 @@ void createNewDomain() {
 
     string domainName = helper::promptString("Input new domain name: ");
 
-    if (domains.addDomain(domainName)) {
+    if (libraryDomainsManager.addDomain(domainName)) {
         cout << "domain added" << endl;
     } else {
         cout << "domain already exists" << endl;
@@ -196,15 +198,15 @@ void addBookToDomain() {
     carte.setAuthor(helper::promptString("Input book author: "));
     carte.setId(helper::promptString("Input book id: "));
 
-    if (!library.addBook(carte)) {
+    if (!libraryBooksManager.addBook(carte)) {
         cout << "A book with same id already exists" << endl;
         return;
     }
 
-    if (domains.addToDomain(carte, domainName)) {
+    if (libraryDomainsManager.addToDomain(carte, domainName)) {
         cout << "Book has been added to domain" << endl;
     } else {
-        library.deleteBook(carte.getId());
+        libraryBooksManager.deleteBook(carte.getId());
         cout << "Domain does not exist" << endl;
     }
 }
