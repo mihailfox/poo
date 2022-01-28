@@ -20,7 +20,7 @@ public:
     domainsManager();
     domainsManager(string fileName, char fieldDelimiter);
     void load();
-    void saveDomains();
+    void save();
     bool addDomain(string domainName);
     bool addToDomain(book book, string domainName);
     void removeFromDomain(string bookId);

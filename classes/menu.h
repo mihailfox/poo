@@ -14,7 +14,7 @@ public:
     menu();
     explicit menu(const string& header);
 
-    void addMenuItem(menuItem item);
+    void add(menuItem menuItem);
 
     menuItem getMenuItem(const string& id);
 

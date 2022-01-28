@@ -12,12 +12,12 @@ void domainsManager::load() {
     csvFile input(fileName, fieldDelimiter);
     vector<vector<string>> temp;
 
-        temp = input.getFileContent();
-        for (int i = 0; i < temp.size(); ++i) {
-            domains.push_back(domain(temp[i]));
-        }
+    temp = input.getFileContent();
+    for (int i = 0; i < temp.size(); ++i) {
+        domains.push_back(domain(temp[i]));
+    }
 }
-void domainsManager::saveDomains() {
+void domainsManager::save() {
     csvFile output(fileName, fieldDelimiter);
     vector<vector<string>> temp;
 
@@ -45,6 +45,7 @@ bool domainsManager::addDomain(string domainName) {
 
     this->domains.push_back(domain(domainName));
 
+    this->save();
     return true;
 }
 
@@ -55,13 +56,20 @@ bool domainsManager::addToDomain(book book, string domainName) {
         return false;
     }
 
-    return this->domains[index].addBookId(book.getId());
+    if(this->domains[index].addBookId(book.getId()))
+    {
+        this->save();
+        return true;
+    }
+
+    return false;
 }
 
 void domainsManager::removeFromDomain(string bookId) {
     for (int i = 0; i < domains.size(); ++i) {
         domains[i].removeBookId(bookId);
     }
+    this->save();
 }
 
 int domainsManager::countDomains() {

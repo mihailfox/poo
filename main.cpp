@@ -7,14 +7,15 @@
 const string booksFile = "carti.in";
 const string domainsFile = "domenii.in";
 const char csvFieldDelimiter = ';';
+
 booksManager libraryBooksManager;
 domainsManager libraryDomainsManager;
 menu mainMenu;
+
 bool dataLoaded = false;
 
 void initMenu();
 void executeUserRequest();
-
 void exitApp();
 void findBooks();
 void printBooks(vector<book> books);
@@ -25,10 +26,11 @@ void checkBorrowedBooks();
 void createNewDomain();
 void addBookToDomain();
 void loadData();
-
+void saveData();
 
 int main() {
     try {
+
         libraryBooksManager = booksManager(booksFile, csvFieldDelimiter);
         libraryDomainsManager = domainsManager(domainsFile, csvFieldDelimiter);
         initMenu();
@@ -38,25 +40,21 @@ int main() {
         cout << ex.what();
     }
 
-    if (dataLoaded) {
-        libraryBooksManager.save();
-        libraryDomainsManager.saveDomains();
-    }
-
+    saveData();
     return 0;
 }
 
 void initMenu() {
     mainMenu = menu("Biblioteca");
-    mainMenu.addMenuItem(menuItem("1", "Load data", (void *)loadData));
-    mainMenu.addMenuItem(menuItem("2", "Create new domain", (void *)createNewDomain));
-    mainMenu.addMenuItem(menuItem("3", "Add book to domain", (void *)addBookToDomain));
-    mainMenu.addMenuItem(menuItem("4", "Search books by title or author", (void *)findBooks));
-    mainMenu.addMenuItem(menuItem("5", "Delete book", (void *)deleteBook));
-    mainMenu.addMenuItem(menuItem("6", "Lend book", (void *)lendBook));
-    mainMenu.addMenuItem(menuItem("7", "Return book", (void *)returnBook));
-    mainMenu.addMenuItem(menuItem("8", "Check loaned books return term", (void *)checkBorrowedBooks));
-    mainMenu.addMenuItem(menuItem("0","Exit",(void *)exitApp));
+    mainMenu.add(menuItem("1", "Load data", (void *) loadData));
+    mainMenu.add(menuItem("2", "Create new domain", (void *) createNewDomain));
+    mainMenu.add(menuItem("3", "Add book to domain", (void *) addBookToDomain));
+    mainMenu.add(menuItem("4", "Search books by title or author", (void *) findBooks));
+    mainMenu.add(menuItem("5", "Delete book", (void *) deleteBook));
+    mainMenu.add(menuItem("6", "Lend book", (void *) lendBook));
+    mainMenu.add(menuItem("7", "Return book", (void *) returnBook));
+    mainMenu.add(menuItem("8", "Check loaned books return term", (void *) checkBorrowedBooks));
+    mainMenu.add(menuItem("0", "Exit", (void *) exitApp));
     mainMenu.setExitItem("0");
 }
 
@@ -88,10 +86,13 @@ void executeUserRequest() {
 }
 
 void exitApp() {
-    cout << "Exiting application..." << endl;
-    return;
-}
+    if(dataLoaded) {
+        saveData();
+    }
 
+    cout << "Exiting application..." << endl;
+    exit(0);
+}
 
 void loadData() {
     libraryBooksManager.load();
@@ -101,6 +102,11 @@ void loadData() {
 
     cout << "Loaded " << libraryBooksManager.countBooks() << " books from ";
     cout << libraryDomainsManager.countDomains() << " domains!" << endl;
+}
+
+void saveData() {
+    libraryBooksManager.save();
+    libraryDomainsManager.save();
 }
 
 void findBooks() {
@@ -210,5 +216,3 @@ void addBookToDomain() {
         cout << "Domain does not exist" << endl;
     }
 }
-
-

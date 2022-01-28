@@ -71,6 +71,8 @@ bool booksManager::deleteBook(string id) {
         return false;
     }
     books.erase(books.begin() + index);
+
+    this->save();
     return true;
 }
 
@@ -102,6 +104,7 @@ bool booksManager::lendBook(string id) {
     books[index].setBorrowed(true);
     books[index].setBorrowedTime(time(nullptr));
 
+    this->save();
     return true;
 }
 
@@ -115,6 +118,7 @@ bool booksManager::returnBook(string id) {
     books[index].setBorrowed(false);
     books[index].setBorrowedTime(0);
 
+    this->save();
     return true;
 }
 
@@ -124,6 +128,7 @@ bool booksManager::addBook(book book) {
     }
 
     this->books.push_back(book);
+    this->save();
     return true;
 }
 

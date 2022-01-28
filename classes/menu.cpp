@@ -14,7 +14,7 @@ menu::menu(const string& header) {
     this->header = header;
 }
 
-void menu::addMenuItem(menuItem menuItem) {
+void menu::add(menuItem menuItem) {
     if(menuItem.isInitialized()) {
         this->menuItems.push_back(menuItem);
     }
