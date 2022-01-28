@@ -24,6 +24,7 @@ public:
     bool addDomain(string domainName);
     bool addToDomain(book book, string domainName);
     void removeFromDomain(string bookId);
+    bool domainsManager::find(string domainName);
     int countDomains();
 };
 

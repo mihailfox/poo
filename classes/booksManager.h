@@ -14,7 +14,7 @@ private:
     vector<book> books;
     int getIndexCarte(string id);
     bool isPastReturnDate(book book);
-    long int returnPeriod = 86400 * 14; //1209600
+    static const long int returnPeriod = 86400 * 14; //1209600
 public:
     booksManager();
     booksManager(string fileName, char fieldDelimiter);
@@ -22,6 +22,7 @@ public:
     void save();
     bool deleteBook(string id);
     vector<book> findBook(string pattern);
+    bool findBookId(string bookId);
     vector<book> getAllBooksPastReturnDate();
     bool lendBook(string id);
     bool returnBook(string id);

@@ -75,3 +75,10 @@ void domainsManager::removeFromDomain(string bookId) {
 int domainsManager::countDomains() {
     return domains.size();
 }
+
+bool domainsManager::find(string domainName) {
+    if(getDomainIndex(domainName) < 0) {
+        return false;
+    }
+    return true;
+}

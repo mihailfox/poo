@@ -135,3 +135,11 @@ bool booksManager::addBook(book book) {
 int booksManager::countBooks() {
     return books.size();
 }
+
+bool booksManager::findBookId(string bookId) {
+    if(this->getIndexCarte(bookId) < 0) {
+        return false;
+    }
+
+    return true;
+}
